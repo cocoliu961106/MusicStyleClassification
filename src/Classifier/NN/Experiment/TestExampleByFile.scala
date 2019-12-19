@@ -6,6 +6,7 @@ import breeze.linalg.{DenseMatrix => BDM}
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.{SparkConf, SparkContext}
 
+// 根据生成的随机数样本，进行训练，并对训练集进行预测，并将训练好的模型通过序列化的方式保存在文件中
 object TestExampleByFile {
   def main(args: Array[String]): Unit = {
     // 1.构造spark对象

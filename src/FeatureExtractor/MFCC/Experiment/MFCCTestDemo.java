@@ -6,6 +6,8 @@ import FeatureExtractor.MFCC.Util.WaveFileReader;
 
 import java.util.Arrays;
 
+// 测试一首歌的提取效果，通过特征提取算法获得每一帧n维向量后（n为MFCC参数个数），
+// 再对整首歌每一个参数求平均值和方差，最终结果一首歌对应一个2n维向量
 public class MFCCTestDemo {
     public static void main(String args[]) throws Exception {
         String fileName  = "F:\\BaiduNetdiskDownload\\林俊杰 - 可惜没如果.wav";

@@ -5,6 +5,8 @@ import breeze.linalg.{DenseMatrix => BDM}
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.{SparkConf, SparkContext}
 
+
+// 根据保存样本的文件进行训练，并直接从训练集中进行预测，得到误差，获取分类效果
 object TestExampleCNN {
 
   def main(args: Array[String]) {

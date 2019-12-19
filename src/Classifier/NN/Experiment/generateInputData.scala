@@ -8,6 +8,7 @@ import breeze.linalg.{DenseMatrix => BDM, max => Bmax, min => Bmin}
 import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
 
+// 生成随机数样本，并保存在文件中
 object generateInputData {
   def main(args: Array[String]): Unit = {
     val sample_n1 = 1000 // 样本数
