@@ -1,2 +1,3 @@
 # MusicStyleClassification
 基于Spark的音乐风格分类系统
+主要功能是通过离线的训练得到分类模型（用spark core实现），然后在实时的环境下监听音乐文件的上传并预测分类结果（用spark streaming实现）
