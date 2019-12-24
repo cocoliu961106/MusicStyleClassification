@@ -13,7 +13,7 @@ public class test1 {
 
     }
 
-    public void kafka() {
+    /*public void kafka() {
 
         // 创建生产者
         Properties properties = new Properties();
@@ -77,5 +77,5 @@ public class test1 {
         } finally {
             consumer.close();
         }
-    }
+    }*/
 }
