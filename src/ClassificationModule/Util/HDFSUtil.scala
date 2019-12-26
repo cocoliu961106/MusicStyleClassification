@@ -8,8 +8,8 @@ import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs._
 import org.apache.zookeeper.common.IOUtils
 
-object HDFSUtil {
-  val hdfsUrl = "hdfs://namenode的ip地址:端口"
+object HDFSUtil extends Serializable{
+  val hdfsUrl = "hdfs://spark1:9000"
   var realUrl = ""
 
   /**
@@ -159,8 +159,9 @@ object HDFSUtil {
     * @param hdfsFile a full path name, may like '/tmp/test.txt'
     * @return byte[] file content
     */
-  def readHDFSFile(hdfsFile : String) : Array[Byte] = {
+  def readHDFSFile(hdfsFile : String) : String = {
     var result =  new Array[Byte](0)
+    val buff = new Array[Byte](4)
     if (StringUtils.isNoneBlank(hdfsFile)) {
       realUrl = hdfsUrl + hdfsFile
       val config = new Configuration()
@@ -168,16 +169,26 @@ object HDFSUtil {
       val path = new Path(realUrl)
       if (hdfs.exists(path)) {
         val inputStream = hdfs.open(path)
-        val stat = hdfs.getFileStatus(path)
-        val length = stat.getLen.toInt
-        val buffer = new Array[Byte](length)
-        inputStream.readFully(buffer)
+//        val stat = hdfs.getFileStatus(path)
+//        val length = stat.getLen.toInt
+//        val buffer = new Array[Byte](length)
+//        inputStream.readFully(buffer)
+        val bfs = new BufferedInputStream(inputStream)
+        try {
+          if (bfs.read(buff) != 4)
+            throw new IOException("no more data!!!")
+        } catch {
+          case e: IOException => {
+            e.printStackTrace()
+          }
+        }
+        bfs.close()
         inputStream.close()
         hdfs.close()
-        result = buffer
+//        result = buffer
       }
     }
-    result
+     new String(buff)
   }
 
   /**
