@@ -5,13 +5,18 @@ import org.apache.spark.{SparkConf, SparkContext}
 
 import scala.io.Source
 
-// kafka监听hdfs文件目录，一有新文件上传，获取文件名
+// kafka监听hdfs文件目录，一有新文件上传，就获取新上传的文件名
 object Test2 {
   def main(args: Array[String]): Unit = {
+    var a = List[String]()
+    a = a :+ "a"
+    a = a :+ "b"
+    a.foreach(println(_))
 
   }
 }
 
+// spark读取hdfs音频文件
 /*val conf = new SparkConf()
     .setAppName("kafkaTest")
   val sc = new SparkContext(conf)

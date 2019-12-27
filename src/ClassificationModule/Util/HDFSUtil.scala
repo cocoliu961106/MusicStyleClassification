@@ -8,7 +8,7 @@ import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs._
 import org.apache.zookeeper.common.IOUtils
 
-object HDFSUtil extends Serializable{
+object HDFSUtil extends Serializable {
   val hdfsUrl = "hdfs://spark1:9000"
   var realUrl = ""
 

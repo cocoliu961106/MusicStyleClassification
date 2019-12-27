@@ -3,14 +3,14 @@ package FeatureExtractor.MFCC.Util
 import java.io.{BufferedInputStream, FileInputStream, IOException}
 import java.net.URI
 
-import ClassificationModule.Util.HDFSUtil.{hdfsUrl, realUrl}
 import org.apache.commons.lang3.StringUtils
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{FSDataInputStream, FileSystem, Path}
 
 // 从HDFS读取文件，并获取和WaveFileReader一样格式的数据
 class OnlineWaveFileReader(var filename: String) extends Serializable {
-  val hdfsUrl = "hdfs://spark1:9000"
+  val hdfsUrl = "hdfs://spark1:9000/music/"
+  var realUrl = ""
   private var data:Array[Array[Int]] = _
   private var len = 0
   private var chunkdescriptor: String = _
