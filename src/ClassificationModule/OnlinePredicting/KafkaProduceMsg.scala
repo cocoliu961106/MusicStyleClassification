@@ -1,5 +1,6 @@
 package ClassificationModule.OnlinePredicting
 
+import java.io.IOException
 import java.util.Properties
 
 import org.apache.hadoop.conf.Configuration
@@ -83,6 +84,8 @@ class KafkaProduceMsg extends Runnable {
         })
         println("完成一次消息生产")
       }
+    } catch {
+      case e: IOException => e.printStackTrace()
     }
   }
 }
