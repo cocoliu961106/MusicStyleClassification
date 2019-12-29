@@ -5,3 +5,14 @@
 2.在线部分实时获取用户上传的音乐，并进行在线的特征提取，用保存的模型进行分类的预测（用spark streaming实现）
 
 具体每个包的含义：
+
+Classifier: 分类器模型
+    CNN：卷积神经网络模型
+    NN： 神经网络模型
+
+FeatureExtractor: 特征提取模型
+    MFCC：梅尔倒谱系数
+
+ClassificationModule: 整个音乐分类系统的流程
+    OfflineTraining: 离线训练模块
+    OnlinePredicting: 在线预测模块
