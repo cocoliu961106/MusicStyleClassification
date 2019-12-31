@@ -15,4 +15,5 @@ FeatureExtractor: 特征提取模型
 
 ClassificationModule: 整个音乐分类系统的流程
     OfflineTraining: 离线训练模块
+    OfflinePredicting: 离线预测模块（仅用于测试）
     OnlinePredicting: 在线预测模块

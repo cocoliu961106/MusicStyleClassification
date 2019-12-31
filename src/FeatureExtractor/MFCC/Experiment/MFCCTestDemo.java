@@ -46,7 +46,7 @@ public class MFCCTestDemo {
         System.out.println(MFCC.getNumberOfCoefficients());
         System.out.println(Arrays.toString(MFCCParameters[3906]));
 
-        // 求整首歌每一帧的每个参数的平均值和方差，以获得歌曲在时间上面的特征
+        // 4.求整首歌每一帧的每个参数的平均值和方差，以获得歌曲的总体特征
         int numberOfParameters = MFCC.getNumberOfCoefficients();
         double[] mean = new double[numberOfParameters];
         double[] variance = new double[numberOfParameters];

@@ -3,16 +3,13 @@ package ClassificationModule
 import FeatureExtractor.MFCC.Util.OnlineWaveFileReader
 import org.apache.spark.{SparkConf, SparkContext}
 
+import scala.collection.SortedMap
 import scala.io.Source
 
-// kafka监听hdfs文件目录，一有新文件上传，就获取新上传的文件名
 object Test2 {
   def main(args: Array[String]): Unit = {
-    var a = List[String]()
-    a = a :+ "a"
-    a = a :+ "b"
-    a.foreach(println(_))
-
+    val labelMap = SortedMap("blues" -> 1, "classical" -> 2, "country" -> 3, "disco" -> 4, "hiphop" -> 5, "jazz" -> 6, "metal" -> 7, "pop" -> 8, "reggae" -> 9, "rock" -> 10)
+    println(labelMap("rock.00081.wav".split('.')(0)))
   }
 }
 

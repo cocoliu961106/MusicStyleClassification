@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class BeforeFFT {
     // 预加重
-    public static void preEnhance(double data[]) {
+    public  void preEnhance(double data[]) {
         // 将信号值域先置于-1到1之间
         double max = 0;
         for(double i : data) {
