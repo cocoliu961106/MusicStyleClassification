@@ -2,7 +2,7 @@ package ClassificationModule.OnlinePredicting
 
 import Classifier.NN.Model.NeuralNetModel
 import Classifier.NN.Util.Serialization
-import FeatureExtractor.MFCC.Model.MFCCProcecure
+import FeatureExtractor.MFCC.Model.{MFCC, MFCCProcecure}
 import FeatureExtractor.MFCC.Util.OnlineWaveFileReader
 import kafka.serializer.StringDecoder
 import org.apache.spark.SparkConf
@@ -50,7 +50,8 @@ object KafkaConsumer {
       val fileName = f._1
       val data = f._2
       val sampleRate = f._3
-      val result = new MFCCProcecure().processingData(data, sampleRate).getParameter
+      val mfcc = new MFCC(12, sampleRate, 19, 512, false, 0, false)
+      val result = new MFCCProcecure().processingData(data, mfcc).getParameter
       (fileName, result)
     })
 

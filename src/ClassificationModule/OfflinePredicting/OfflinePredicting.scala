@@ -6,7 +6,7 @@ import breeze.linalg.{CSCMatrix => BSM, DenseMatrix => BDM, DenseVector => BDV, 
 import org.apache.spark.{SparkConf, SparkContext}
 import Classifier.NN.Model.NeuralNetModel
 import Classifier.NN.Util.Serialization
-import FeatureExtractor.MFCC.Model.MFCCProcecure
+import FeatureExtractor.MFCC.Model.{MFCC, MFCCProcecure}
 import FeatureExtractor.MFCC.Util.WaveFileReader
 
 import scala.collection.SortedMap
@@ -29,7 +29,8 @@ object OfflinePredicting {
       for (i <- 0 until wfr.getDataLen) {
         data(i) = wfr.getData()(0)(i)
       }
-      val result = new MFCCProcecure().processingData(data, wfr.getSampleRate).getParameter
+      val mfcc = new MFCC(12, wfr.getSampleRate, 19, 512, false, 0, false)
+      val result = new MFCCProcecure().processingData(data, mfcc).getParameter
       printf("第%d个文件特征提取完毕\n", num)
       num += 1
 
