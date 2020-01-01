@@ -42,10 +42,13 @@ public class BeforeFFT {
 
     // 加窗
     public void HammingWindow(double[][] frameData) {
-        for (int i = 0; i< frameData.length; i++) {
-            for (int n = 0;n < frameData[0].length; n++) {
-                double currentWindowValue = 0.5 - 0.5 * Math.cos((2 * Math.PI * n) / (frameData[0].length - 1));
-                frameData[i][n] = frameData[i][n] * currentWindowValue;
+        double[] currentWindowValue = new double[frameData[0].length];
+        for (int n = 0; n < frameData[0].length; n++) {
+            currentWindowValue[n] = 0.54 - 0.46 * Math.cos((2 * Math.PI * n) / (frameData[0].length - 1));
+        }
+        for (int i = 0; i < frameData.length; i++) {
+            for (int n = 0; n < frameData[0].length; n++) {
+                frameData[i][n] = frameData[i][n] * currentWindowValue[n];
             }
         }
     }

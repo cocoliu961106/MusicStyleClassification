@@ -8,10 +8,10 @@ public class test1 {
     public static void main(String[] args) {
         double[] data = {1, 2, 3, 4, 5, 6, 7, 8};
         BeforeFFT preSteps = new BeforeFFT();
-        double[] preStepsResult = preSteps.preEnhance(data);
-        for(double value : preStepsResult) {
-            System.out.println(value);
-        }
+        double[] psData = preSteps.preEnhance(data);
+        double[][] frameData = preSteps.framing(psData, 4);
+        preSteps.HammingWindow(frameData);
+
     }
 
     /*public void kafka() {
@@ -95,7 +95,7 @@ class BeforeFFT {
         result[0] = data[0];
         for (int i = 1; i < data.length; i++) {
             data[i] = data[i] / max;
-            result[i] = data[i] - 0.957 * data[i - 1];
+            result[i] = data[i] - 0.97 * data[i - 1];
         }
         return result;
     }
@@ -119,10 +119,13 @@ class BeforeFFT {
 
     // 加窗
     public void HammingWindow(double[][] frameData) {
+        double[] currentWindowValue = new double[frameData[0].length];
+        for (int n = 0; n < frameData[0].length; n++) {
+            currentWindowValue[n] = 0.54 - 0.46 * Math.cos((2 * Math.PI * n) / (frameData[0].length - 1));
+        }
         for (int i = 0; i < frameData.length; i++) {
             for (int n = 0; n < frameData[0].length; n++) {
-                double currentWindowValue = 0.5 - 0.5 * Math.cos((2 * Math.PI * n) / (frameData[0].length - 1));
-                frameData[i][n] = frameData[i][n] * currentWindowValue;
+                frameData[i][n] = frameData[i][n] * currentWindowValue[n];
             }
         }
     }
