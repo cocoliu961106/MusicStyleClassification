@@ -1,6 +1,6 @@
 package ClassificationModule.OfflineTraining
 
-import FeatureExtractor.MFCC.Model.{MFCC, MFCCProcecure}
+import FeatureExtractor.MFCC.Model.MFCCProcecure
 import FeatureExtractor.MFCC.Util.WaveFileReader
 import Classifier.NN.Model.NeuralNet
 import Classifier.NN.Model.NeuralNetModel
@@ -94,8 +94,7 @@ object OfflineTraining {
       }
 
       // 2.进行特征提取
-      val mfcc = new MFCC(12, wfr.getSampleRate, 19, 512, false, 0, false)
-      val result = new MFCCProcecure().processingData(data, mfcc).getParameter
+      val result = new MFCCProcecure().processingData(data, wfr.getSampleRate).getParameter
       printf("第%d个文件特征提取完毕\n", num)
       num += 1
       (fileName, result)
@@ -126,12 +125,12 @@ object OfflineTraining {
     })
 
     // 设置训练参数，训练模型
-    val opts = Array(20.0, 2.0, 0.0)    // (batch大小， epoach循环训练次数，交叉验证比例)
+    val opts = Array(20.0, 10.0, 0.0)    // (batch大小， epoach循环训练次数，交叉验证比例)
     val NNmodel = new NeuralNet().
-      setSize(Array(24, 12, 10)).
+      setSize(Array(40, 15, 10)).
       setLayer(3).
       setActivation_function("lrelu").
-      setLearningRate(0.1).
+      setLearningRate(1.0).
       setScaling_learningRate(0.5).
       setWeightPenaltyL2(0.0).
       setNonSparsityPenalty(0.0).

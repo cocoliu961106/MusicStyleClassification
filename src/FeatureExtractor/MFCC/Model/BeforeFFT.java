@@ -6,18 +6,21 @@ import java.util.Arrays;
 
 public class BeforeFFT {
     // 预加重
-    public  void preEnhance(double data[]) {
+    public double[] preEnhance(double data[]) {
         // 将信号值域先置于-1到1之间
         double max = 0;
-        for(double i : data) {
+        for (double i : data) {
             if (Math.abs(i) > max)
                 max = Math.abs(i);
         }
+        double[] result = new double[data.length];
         data[0] = data[0] / max;
-        for(int i = 1;i < data.length; i++) {
+        result[0] = data[0];
+        for (int i = 1; i < data.length; i++) {
             data[i] = data[i] / max;
-            data[i] = data[i] - 0.97 * data[i - 1];
+            result[i] = data[i] - 0.97 * data[i - 1];
         }
+        return result;
     }
 
     // 分帧

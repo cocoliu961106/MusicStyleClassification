@@ -4,21 +4,22 @@ package FeatureExtractor.MFCC.Model;
 // 步骤如果写在构造方法里，scala调用会报错，所以写在了普通方法里
 public class MFCCProcecure {
     private double[] parameter = null;
-    public MFCCProcecure processingData(double[] data, MFCC mfcc) {
+    public MFCCProcecure processingData(double[] data,long sampleRate) {
         // 1.预加重、分帧、加窗，得到分帧以后的信号
         BeforeFFT preSteps = new BeforeFFT();
-        preSteps.preEnhance(data);
-        double[][] frameData = preSteps.framing(data, 512);
+        double[] psData = preSteps.preEnhance(data);
+        double[][] frameData = preSteps.framing(psData, 512);
         preSteps.HammingWindow(frameData);
 
         // 2.进行FFT、通过三角滤波器并进行DCT得到MFCC系数
+        MFCC MFCC = new MFCC(20, sampleRate, 19, 512, false, 0, false);
         double[][] MFCCParameters = new double[frameData.length][];
         for (int i = 0; i < frameData.length; i++) {
-            MFCCParameters[i] = mfcc.getParameters(frameData[i]);
+            MFCCParameters[i] = MFCC.getParameters(frameData[i]);
         }
 
         // 3.求整首歌每一帧的每个参数的平均值和方差，以获得歌曲的总体特征
-        int numberOfParameters = mfcc.getNumberOfCoefficients();
+        int numberOfParameters = MFCC.getNumberOfCoefficients();
         double[] mean = new double[numberOfParameters];
         double[] variance = new double[numberOfParameters];
         for (int i = 0; i < numberOfParameters; i++) {
