@@ -393,8 +393,10 @@ class NeuralNet(
         output_function)
       initEndTime = System.currentTimeMillis()
 
-      // 打印输出结果
-      printf("epoch: numepochs = %d , Took = %d seconds; Full-batch train mse = %f, val mse = %f.\n", i, scala.math.ceil((initEndTime - initStartTime).toDouble / 1000).toLong, loss_train_e(i - 1), loss_val_e(i - 1))
+    }
+    for (i <- 1 until loss_train_e.length) {
+      printf("epoch: numepochs = %d , Full-batch train mse = %f, val mse = %f.\n", i, loss_train_e(i - 1), loss_val_e(i - 1))
+
     }
     val configok = NNConfig(size, layer, activation_function, learningRate, momentum, scaling_learningRate,
       weightPenaltyL2, nonSparsityPenalty, sparsityTarget, inputZeroMaskedFraction, dropoutFraction, 1.0,

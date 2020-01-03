@@ -60,7 +60,7 @@ object OfflineTraining {
       Array.concat(f1, f2)
     })
 
-    // 打乱样本的顺序
+    // 打乱样本的顺序(没必要，因为在spark下的NN进行训练是分布式的，样本本来就是随机分配的)
     val musicFileBuffer = musicFileArr.toBuffer
     val disorderMusicFileBuffer = new ArrayBuffer[File]()
     for (i <- musicFileBuffer.length - 1 to 0 by -1) {
@@ -125,16 +125,18 @@ object OfflineTraining {
     })
 
     // 设置训练参数，训练模型
-    val opts = Array(20.0, 10.0, 0.0)    // (batch大小， epoach循环训练次数，交叉验证比例)
+    val opts = Array(20.0, 100.0, 0.0)    // (batch大小， epoach循环训练次数，交叉验证比例)
     val NNmodel = new NeuralNet().
       setSize(Array(40, 15, 10)).
       setLayer(3).
       setActivation_function("lrelu").
-      setLearningRate(1.0).
-      setScaling_learningRate(0.5).
+      setLearningRate(0.5).
+      setScaling_learningRate(1.0).
       setWeightPenaltyL2(0.0).
       setNonSparsityPenalty(0.0).
       setSparsityTarget(0.0).
+      setDropoutFraction(0.0).
+      setMomentum(0.0).
       setOutput_function("softmax").
       NNtrain(trainMusicRDD, opts)
 

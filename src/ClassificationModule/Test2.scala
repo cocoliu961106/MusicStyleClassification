@@ -4,12 +4,19 @@ import FeatureExtractor.MFCC.Util.OnlineWaveFileReader
 import org.apache.spark.{SparkConf, SparkContext}
 
 import scala.collection.SortedMap
+import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
 
 object Test2 {
   def main(args: Array[String]): Unit = {
-    val labelMap = SortedMap("blues" -> 1, "classical" -> 2, "country" -> 3, "disco" -> 4, "hiphop" -> 5, "jazz" -> 6, "metal" -> 7, "pop" -> 8, "reggae" -> 9, "rock" -> 10)
-    println(labelMap("rock.00081.wav".split('.')(0)))
+    val a = ArrayBuffer(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    val disorderMusicFileBuffer = new ArrayBuffer[Int]()
+    for (i <- a.length - 1 to 0 by -1) {
+      val index = (Math.random() * i).round.toInt
+      disorderMusicFileBuffer += a(index)
+      a.remove(index)
+    }
+    disorderMusicFileBuffer.toArray.foreach(println(_))
   }
 }
 

@@ -7,8 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5678ec8c-4e6e-4509-a612-fbe78e1d6103" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClassificationModule/OfflinePredicting/OfflinePredicting.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassificationModule/OfflinePredicting/OfflinePredicting.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClassificationModule/OfflineTraining/OfflineTraining.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassificationModule/OfflineTraining/OfflineTraining.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClassificationModule/Test2.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassificationModule/Test2.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Classifier/NN/Model/NeuralNet.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classifier/NN/Model/NeuralNet.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FeatureExtractor/MFCC/Model/BeforeFFT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FeatureExtractor/MFCC/Model/BeforeFFT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FeatureExtractor/test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FeatureExtractor/test1.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/../spark-study-java/target/" />
@@ -27,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Util/OnlineWaveFileReader.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
-              <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+              <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
               <folding>
                 <element signature="e#36#102#0" expanded="true" />
               </folding>
@@ -36,35 +40,49 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Classifier/NN/Model/NeuralNet.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-64">
+              <caret line="810" column="74" selection-start-line="810" selection-start-column="56" selection-end-line="810" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Classifier/NN/Experiment/TestExampleNNByRandom.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="59" column="6" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Model/MFCCProcecure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="11" column="32" selection-start-line="11" selection-end-line="12" />
+            <state relative-caret-position="473">
+              <caret line="23" column="38" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ClassificationModule/OnlinePredicting/KafkaConsumer.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="514">
+              <caret line="76" column="27" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="27" />
               <folding>
-                <element signature="e#1871#1872#0" expanded="true" />
-                <element signature="e#1908#1909#0" expanded="true" />
+                <element signature="e#47#88#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/test1.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="120" column="4" lean-forward="true" selection-start-line="120" selection-start-column="4" selection-end-line="130" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Model/BeforeFFT.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+            <state relative-caret-position="-81">
+              <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,8 +93,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ClassificationModule/OfflinePredicting/OfflinePredicting.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="31" column="36" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="36" />
+            <state relative-caret-position="-134">
+              <caret line="15" column="59" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
               <folding>
                 <element signature="e#48#67#0" expanded="true" />
               </folding>
@@ -84,23 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ClassificationModule/OnlinePredicting/KafkaProduceMsg.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1998">
-              <caret line="79" column="38" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
-              <folding>
-                <element signature="e#47#73#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ClassificationModule/OfflineTraining/OfflineTraining.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="133" column="34" selection-start-line="133" selection-start-column="34" selection-end-line="133" selection-end-column="34" />
+            <state relative-caret-position="297">
+              <caret line="131" column="35" selection-start-line="131" selection-start-column="35" selection-end-line="131" selection-end-column="35" />
               <folding>
                 <element signature="e#46#94#0" expanded="true" />
               </folding>
@@ -109,10 +115,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Model/MFCC.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2700">
+              <caret line="100" column="13" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ClassificationModule/Test2.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+            <state relative-caret-position="270">
+              <caret line="15" column="29" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="29" />
               <folding>
                 <element signature="e#30#84#0" expanded="true" />
               </folding>
@@ -140,11 +155,27 @@
       <find>println</find>
       <find>init</find>
       <find>train</find>
-      <find>relu</find>
       <find>soft</find>
       <find>softmax</find>
       <find>n</find>
+      <find>lRelu</find>
+      <find>nna</find>
+      <find>relu</find>
+      <find>nn_a</find>
+      <find>nn_W</find>
       <find>scaling_learningRate</find>
+      <find>learningRate</find>
+      <find>train mse</find>
+      <find>m_dsamplingFrequency</find>
+      <find>loss_train_e</find>
+      <find>weightPenaltyL2</find>
+      <find>dropout</find>
+      <find>L2</find>
+      <find>dropoutFraction</find>
+      <find>eval</find>
+      <find>momentum</find>
+      <find>sigm</find>
+      <find>nonSparsityPenalty</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -158,7 +189,6 @@
         <option value="$PROJECT_DIR$/src/spark/Logging.scala" />
         <option value="$PROJECT_DIR$/src/Classifier/NN/Model/Experiment/TestExampleNNByRandom.scala" />
         <option value="$PROJECT_DIR$/src/Classifier/NN/Model/Experiment/generateInputData.scala" />
-        <option value="$PROJECT_DIR$/src/Classifier/NN/Model/NeuralNet.scala" />
         <option value="$PROJECT_DIR$/src/Classifier/CNN/CNN.scala" />
         <option value="$PROJECT_DIR$/src/Classifier/CNN/Model/CNN.scala" />
         <option value="$PROJECT_DIR$/src/Classifier/CNN/Model/CNNModel.scala" />
@@ -190,14 +220,15 @@
         <option value="$PROJECT_DIR$/src/FeatureExtractor/MFCC/Experiment/MFCCTestDemo.java" />
         <option value="$PROJECT_DIR$/src/ClassificationModule/Util/HDFSUtil.scala" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/ClassificationModule/Test2.scala" />
         <option value="$PROJECT_DIR$/src/Classifier/NN/Model/NeuralNetModel.scala" />
         <option value="$PROJECT_DIR$/src/ClassificationModule/OnlinePredicting/KafkaConsumer.scala" />
-        <option value="$PROJECT_DIR$/src/ClassificationModule/OfflineTraining/OfflineTraining.scala" />
-        <option value="$PROJECT_DIR$/src/ClassificationModule/OfflinePredicting/OfflinePredicting.scala" />
         <option value="$PROJECT_DIR$/src/FeatureExtractor/MFCC/Model/MFCCProcecure.java" />
         <option value="$PROJECT_DIR$/src/FeatureExtractor/test1.java" />
+        <option value="$PROJECT_DIR$/src/ClassificationModule/Test2.scala" />
         <option value="$PROJECT_DIR$/src/FeatureExtractor/MFCC/Model/BeforeFFT.java" />
+        <option value="$PROJECT_DIR$/src/Classifier/NN/Model/NeuralNet.scala" />
+        <option value="$PROJECT_DIR$/src/ClassificationModule/OfflinePredicting/OfflinePredicting.scala" />
+        <option value="$PROJECT_DIR$/src/ClassificationModule/OfflineTraining/OfflineTraining.scala" />
       </list>
     </option>
   </component>
@@ -207,7 +238,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="87" />
     <option name="width" value="1056" />
     <option name="height" value="1059" />
@@ -218,7 +249,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -237,32 +267,12 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ClassificationModule" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="MusicStyleClassification" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MusicStyleClassification" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="FeatureExtractor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MusicStyleClassification" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MusicStyleClassification" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="FeatureExtractor" type="462c0819:PsiDirectoryNode" />
-              <item name="MFCC" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MusicStyleClassification" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MusicStyleClassification" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="FeatureExtractor" type="462c0819:PsiDirectoryNode" />
-              <item name="MFCC" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -305,20 +315,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.test1">
-    <configuration name="KafkaConsumer" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="ClassificationModule.OnlinePredicting.KafkaConsumer" />
-      <module name="MusicStyleClassification" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ClassificationModule.OnlinePredicting.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.OfflinePredicting">
     <configuration name="Msg" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="ClassificationModule.OnlinePredicting.Msg" />
       <module name="MusicStyleClassification" />
@@ -358,6 +355,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test2" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="ClassificationModule.Test2" />
+      <module name="MusicStyleClassification" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ClassificationModule.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="test1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="FeatureExtractor.test1" />
       <module name="MusicStyleClassification" />
@@ -373,11 +383,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.test1" />
         <item itemvalue="Application.OfflinePredicting" />
         <item itemvalue="Application.OfflineTraining" />
+        <item itemvalue="Application.Test2" />
+        <item itemvalue="Application.test1" />
         <item itemvalue="Application.Msg" />
-        <item itemvalue="Application.KafkaConsumer" />
       </list>
     </recent_temporary>
   </component>
@@ -396,8 +406,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17110874" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17430703" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -406,8 +417,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3991323" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -456,12 +467,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="scala-line">
-          <url>file://$PROJECT_DIR$/src/Classifier/NN/Model/NeuralNet.scala</url>
-          <line>341</line>
-          <properties />
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/FeatureExtractor/test1.java</url>
           <line>14</line>
@@ -474,6 +479,12 @@
           <properties />
           <option name="timeStamp" value="15" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Model/MFCCProcecure.java</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -482,14 +493,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://F:/360Downloads/spark-streaming-kafka-0-10_2.11-2.4.0 (1).jar!/org/apache/spark/streaming/kafka010/KafkaUtils.class" />
-    <entry file="jar://F:/360Downloads/spark-streaming-kafka-0-8_2.11-2.4.3.jar!/org/apache/spark/streaming/kafka/KafkaUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Classifier/CNN/Experiment/generateInputData.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
@@ -618,13 +621,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Model/MFCC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7758">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Experiment/ReadWaveDemo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -641,9 +637,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Classifier/CNN/Model/CNN.scala">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Classifier/NN/Util/RandSampleData.scala">
       <provider selected="true" editor-type-id="text-editor">
@@ -666,13 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
           <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -741,33 +727,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClassificationModule/OnlinePredicting/KafkaConsumer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="52" column="28" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
-          <folding>
-            <element signature="e#47#88#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClassificationModule/OnlinePredicting/KafkaProduceMsg.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1998">
-          <caret line="79" column="38" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
-          <folding>
-            <element signature="e#47#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Classifier/NN/Model/NeuralNet.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15552">
-          <caret line="582" column="40" selection-start-line="582" selection-start-column="40" selection-end-line="582" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Classifier/NN/Model/NeuralNetModel.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="648">
@@ -778,73 +737,131 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Util/OnlineWaveFileReader.scala">
+    <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/test1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+        <state relative-caret-position="3024">
+          <caret line="114" column="9" selection-start-line="114" selection-start-column="9" selection-end-line="114" selection-end-column="9" />
           <folding>
-            <element signature="e#36#102#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClassificationModule/OfflineTraining/OfflineTraining.scala">
+    <entry file="file://$PROJECT_DIR$/src/ClassificationModule/OnlinePredicting/KafkaProduceMsg.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="133" column="34" selection-start-line="133" selection-start-column="34" selection-end-line="133" selection-end-column="34" />
+        <state relative-caret-position="27">
+          <caret line="14" column="74" selection-start-line="14" selection-start-column="74" selection-end-line="14" selection-end-column="74" />
           <folding>
-            <element signature="e#46#94#0" expanded="true" />
+            <element signature="e#47#73#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/Developing_Enviroument/Spark/spark-2.4.3-bin-hadoop2.7/jars/spark-core_2.11-2.4.3.jar!/org/apache/spark/rdd/RDD.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="39" column="6" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Classifier/CNN/Model/CNN.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-296">
+          <caret line="230" column="7" selection-start-line="230" selection-start-column="7" selection-end-line="230" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Model/MFCC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2700">
+          <caret line="100" column="13" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ClassificationModule/Test2.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+        <state relative-caret-position="270">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="29" />
           <folding>
             <element signature="e#30#84#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClassificationModule/OfflinePredicting/OfflinePredicting.scala">
+    <entry file="file://$PROJECT_DIR$/src/Classifier/NN/Experiment/TestExampleNNByRandom.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="31" column="36" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="36" />
+        <state relative-caret-position="440">
+          <caret line="59" column="6" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ClassificationModule/OnlinePredicting/KafkaConsumer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="76" column="27" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="27" />
           <folding>
-            <element signature="e#48#67#0" expanded="true" />
+            <element signature="e#47#88#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/test1.java">
+    <entry file="file://$PROJECT_DIR$/src/Classifier/NN/Model/NeuralNet.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="120" column="4" lean-forward="true" selection-start-line="120" selection-start-column="4" selection-end-line="130" selection-end-column="5" />
+        <state relative-caret-position="-64">
+          <caret line="810" column="74" selection-start-line="810" selection-start-column="56" selection-end-line="810" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Util/OnlineWaveFileReader.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#36#102#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Model/MFCCProcecure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="11" column="32" selection-start-line="11" selection-end-line="12" />
-          <folding>
-            <element signature="e#1871#1872#0" expanded="true" />
-            <element signature="e#1908#1909#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="473">
+          <caret line="23" column="38" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Model/BeforeFFT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+        <state relative-caret-position="-81">
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ClassificationModule/OfflinePredicting/OfflinePredicting.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-134">
+          <caret line="15" column="59" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
+          <folding>
+            <element signature="e#48#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ClassificationModule/OfflineTraining/OfflineTraining.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="131" column="35" selection-start-line="131" selection-start-column="35" selection-end-line="131" selection-end-column="35" />
+          <folding>
+            <element signature="e#46#94#0" expanded="true" />
           </folding>
         </state>
       </provider>
