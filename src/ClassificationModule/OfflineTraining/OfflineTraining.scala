@@ -28,11 +28,11 @@ object OfflineTraining {
     val musicFile = read(musicList)
 
     // 提取每一首歌的特征
-    val MFCCresultArr = featureExtract(musicFile)   // Array[(fileName: String, feature: Array[Double])]
+    val MFCCresultArr = featureExtract1(musicFile)   // Array[(fileName: String, feature: Array[Double])]
     println(MFCCresultArr.length)
     println(MFCCresultArr(0)._1)
     for(i <- 0 until MFCCresultArr(0)._2.length) {
-      print(MFCCresultArr(0)._2(i) + "  ")
+      print(MFCCresultArr(0)._2(i))
       println()
     }
 
@@ -50,9 +50,9 @@ object OfflineTraining {
       f.listFiles
     })
 
-    // 取每个类别前90首作为训练集，后10首作为测试集
+    // 取每个类别前80首作为训练集，后20首作为测试集
     val trainingMusicFile = musicFile.map(f => {
-      f.slice(0, 90)
+      f.slice(0, 80)
     })
 
     // 将音乐文件二维数组转换为一维数组
@@ -79,7 +79,37 @@ object OfflineTraining {
     })*/
   }
 
-  // 特征提取
+  private def featureExtract1(musicFile: Array[File]): Array[(String, Array[Double])] = {
+    var num = 1
+    var resultBuffer = new ArrayBuffer[(String, Array[Double])]()
+    val labelMap = SortedMap("blues" -> 1, "classical" -> 2, "country" -> 3, "disco" -> 4, "hiphop" -> 5, "jazz" -> 6, "metal" -> 7, "pop" -> 8, "reggae" -> 9, "rock" -> 10)
+    musicFile.foreach(mf => {
+      val fileName = mf.getName
+
+      // 1.将原语音文件数字化表示
+      val wfr: WaveFileReader = new WaveFileReader(mf.getPath)
+      // 获取真实数据部分，也就是我们拿来特征提取的部分
+      val data = new Array[Double](wfr.getDataLen)
+      for (i <- 0 until wfr.getDataLen) {
+        data(i) = wfr.getData()(0)(i)
+      }
+
+      // 2.进行特征提取(抽取两百帧的MFCC进行训练)
+      val parameters = new MFCCProcecure().processingData(data, wfr.getSampleRate).getParameter
+      var parametersBuff = parameters.toBuffer
+      for (i <- parameters.length - 1 until parameters.length - 200 by -1) {
+        val index = (Math.random() * i).round.toInt
+        resultBuffer += new Tuple2(fileName, parametersBuff(index))
+        parametersBuff.remove(index)
+      }
+
+      printf("第%d个文件特征提取完毕\n", num)
+      num += 1
+    })
+    resultBuffer.toArray
+  }
+
+  /*// 特征提取
   private def featureExtract(musicFile: Array[File]): Array[(String, Array[Double])] = {
     var num = 1
     val MFCCresult = musicFile.map(mf => {
@@ -101,7 +131,7 @@ object OfflineTraining {
     })
 
     MFCCresult
-  }
+  }*/
 
   // 分类
   private def classify(musicFeature: Array[(String, Array[Double])]): NeuralNetModel = {
@@ -125,9 +155,9 @@ object OfflineTraining {
     })
 
     // 设置训练参数，训练模型
-    val opts = Array(20.0, 100.0, 0.0)    // (batch大小， epoach循环训练次数，交叉验证比例)
+    val opts = Array(100.0, 1.0, 0.0)    // (batch大小， epoach循环训练次数，交叉验证比例)
     val NNmodel = new NeuralNet().
-      setSize(Array(40, 15, 10)).
+      setSize(Array(20, 15, 10)).
       setLayer(3).
       setActivation_function("lrelu").
       setLearningRate(0.5).

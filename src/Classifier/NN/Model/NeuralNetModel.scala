@@ -40,6 +40,7 @@ class NeuralNetModel(
     predict
   }
 
+
   /**
     * 计算输出误差
     * 平均误差;
