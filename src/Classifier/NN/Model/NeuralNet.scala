@@ -170,7 +170,7 @@ class NeuralNet(
   /**
     * 运行神经网络算法.
     */
-  def NNtrain(train_d: RDD[(BDM[Double], BDM[Double])], opts: Array[Double]): NeuralNetModel = {
+  def NNtrain(train_d: RDD[(BDM[Double], BDM[Double])], opts: Array[Double], normalization: (Array[Double], Array[Double]) = (null, null)): NeuralNetModel = {
     val sc = train_d.sparkContext
     var initStartTime = System.currentTimeMillis()
     var initEndTime = System.currentTimeMillis()
@@ -401,7 +401,7 @@ class NeuralNet(
     val configok = NNConfig(size, layer, activation_function, learningRate, momentum, scaling_learningRate,
       weightPenaltyL2, nonSparsityPenalty, sparsityTarget, inputZeroMaskedFraction, dropoutFraction, 1.0,
       output_function)
-    new NeuralNetModel(configok, nn_W)
+    new NeuralNetModel(configok, nn_W, normalization)
   }
 
 }

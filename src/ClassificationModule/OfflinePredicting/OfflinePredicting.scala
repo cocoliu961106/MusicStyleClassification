@@ -13,7 +13,7 @@ import scala.collection.SortedMap
 
 object OfflinePredicting {
   def main(args: Array[String]): Unit = {
-    val musicPaths = Array("src/data/genres/rock/rock.00094.wav")
+    val musicPaths = Array("src/data/genres/metal/metal.00095.wav")
     val MFCCresultArr = featureExtract(musicPaths)
     predect(MFCCresultArr)
 
@@ -47,12 +47,14 @@ object OfflinePredicting {
 
     val modelPath = "src/ClassificationModule/MusicClassificationNNModel.obj"
     val NNmodel = Serialization.deserialize_file[NeuralNetModel](modelPath)
-
     val musicFeatureRDD = sc.parallelize(musicFeature).cache()
-
+    val bc_normalization = sc.broadcast(NNmodel.normalization)
     val predictMusicRDD = musicFeatureRDD.map(mf => {
       val fileName = mf._1
       val feature = mf._2
+      for (i <- 0 until feature.length) {
+        feature(i) = (feature(i) - bc_normalization.value._1(i)) / bc_normalization.value._2(i)
+      }
       val classificationIndex = labelMap(fileName.split('.')(0))
       val label = Array.fill(10)(0.0)   // 标签 1×10
       label(classificationIndex - 1) = 1.0
@@ -62,8 +64,6 @@ object OfflinePredicting {
     })
 
     val NNforecast = NNmodel.predict(predictMusicRDD)
-    val NNerror = NNmodel.Loss(NNforecast)
-    println(s"NNerror = $NNerror.")
 
     println("————预测的分类结果————")
     NNforecast.foreach(pm => {

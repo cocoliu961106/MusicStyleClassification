@@ -22,22 +22,50 @@ class OfflineTraining(musicFile: Array[File]) {
 
 object OfflineTraining {
   def main(args: Array[String]): Unit = {
-//    var musicData = new ArrayBuffer[Array[Int]]()
+    //    var musicData = new ArrayBuffer[Array[Int]]()
     val musicPath = "src/data/genres"
     val musicList = new File(musicPath)
     val musicFile = read(musicList)
 
     // 提取每一首歌的特征
-    val MFCCresultArr = featureExtract(musicFile)   // Array[(fileName: String, feature: Array[Double])]
+    val MFCCresultArr = featureExtract(musicFile) // Array[(fileName: String, feature: Array[Double])]
+    // 零均值标准化
+
+    val xMean = new Array[Double](MFCCresultArr(0)._2.length)
+    val standardDeviation = new Array[Double](MFCCresultArr(0)._2.length)
+    for (i <- 0 until MFCCresultArr(0)._2.length) {
+      var sum1 = 0.0 // 和
+      var sum2 = 0.0 // 平方和
+      var variance = 0.0 //方差
+      for (j <- 0 until MFCCresultArr.length) {
+        sum1 += MFCCresultArr(j)._2(i)
+        sum2 += MFCCresultArr(j)._2(i) * MFCCresultArr(j)._2(i)
+      }
+      variance = sum2 / MFCCresultArr.length - (sum1 / MFCCresultArr.length) * (sum1 / MFCCresultArr.length)
+      xMean(i) = sum1 / MFCCresultArr.length
+      standardDeviation(i) = Math.sqrt(variance)
+    }
+
+    for (i <- 0 until MFCCresultArr.length) {
+      for (j <- 0 until MFCCresultArr(0)._2.length) {
+        MFCCresultArr(i)._2(j) = (MFCCresultArr(i)._2(j) - xMean(j)) /  standardDeviation(j)
+      }
+    }
     println(MFCCresultArr.length)
     println(MFCCresultArr(0)._1)
-    for(i <- 0 until MFCCresultArr(0)._2.length) {
+    for (i <- 0 until MFCCresultArr(0)._2.length) {
       print(MFCCresultArr(0)._2(i) + "  ")
+      println()
+    }
+    println(MFCCresultArr(1)._1)
+    for (i <- 0 until MFCCresultArr(0)._2.length) {
+      print(MFCCresultArr(1)._2(i) + "  ")
       println()
     }
 
     // 得到训练模型并保存
-    val trainingModel = classify(MFCCresultArr)
+    val normalization = (xMean, standardDeviation)
+    val trainingModel = classify(MFCCresultArr, normalization)
     val save_path = "src/ClassificationModule/MusicClassificationNNModel.obj"
     Serialization.serialize_file(trainingModel, save_path)
     println("模型保存成功!")
@@ -104,7 +132,7 @@ object OfflineTraining {
   }
 
   // 分类
-  private def classify(musicFeature: Array[(String, Array[Double])]): NeuralNetModel = {
+  private def classify(musicFeature: Array[(String, Array[Double])], normalization: (Array[Double], Array[Double])): NeuralNetModel = {
     val labelMap = SortedMap("blues" -> 1, "classical" -> 2, "country" -> 3, "disco" -> 4, "hiphop" -> 5, "jazz" -> 6, "metal" -> 7, "pop" -> 8, "reggae" -> 9, "rock" -> 10)
     // 1.构造spark对象
     val conf = new SparkConf().setMaster("local[2]").setAppName("MusicClassify")
@@ -117,7 +145,7 @@ object OfflineTraining {
       val fileName = mf._1
       val feature = mf._2
       val classificationIndex = labelMap(fileName.split('.')(0))
-      val label = Array.fill(10)(0.0)   // 标签 1×10
+      val label = Array.fill(10)(0.0) // 标签 1×10
       label(classificationIndex - 1) = 1.0
       val labelBDM = new BDM[Double](1, label.length, label)
       val featureBDM = new BDM[Double](1, feature.length, feature)
@@ -125,20 +153,20 @@ object OfflineTraining {
     })
 
     // 设置训练参数，训练模型
-    val opts = Array(20.0, 100.0, 0.0)    // (batch大小， epoach循环训练次数，交叉验证比例)
+    val opts = Array(10.0, 100.0, 0.0) // (batch大小， epoach循环训练次数，交叉验证比例)
     val NNmodel = new NeuralNet().
-      setSize(Array(40, 15, 10)).
+      setSize(Array(100, 25, 10)).
       setLayer(3).
       setActivation_function("lrelu").
-      setLearningRate(0.5).
+      setLearningRate(0.001).
       setScaling_learningRate(1.0).
       setWeightPenaltyL2(0.0).
       setNonSparsityPenalty(0.0).
       setSparsityTarget(0.0).
       setDropoutFraction(0.0).
-      setMomentum(0.0).
+      setMomentum(0.9).
       setOutput_function("softmax").
-      NNtrain(trainMusicRDD, opts)
+      NNtrain(trainMusicRDD, opts, normalization)
 
     NNmodel
   }

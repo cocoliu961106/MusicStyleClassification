@@ -12,7 +12,7 @@ public class MFCCProcecure {
         preSteps.HammingWindow(frameData);
 
         // 2.进行FFT、通过三角滤波器并进行DCT得到MFCC系数
-        MFCC MFCC = new MFCC(20, sampleRate, 19, 512, false, 0, false);
+        MFCC MFCC = new MFCC(50, sampleRate, 22, 512, false, 0, false);
         double[][] MFCCParameters = new double[frameData.length][];
         for (int i = 0; i < frameData.length; i++) {
             MFCCParameters[i] = MFCC.getParameters(frameData[i]);
@@ -39,6 +39,7 @@ public class MFCCProcecure {
         double[] result = new double[mean.length + variance.length];
         System.arraycopy(mean, 0, result, 0, mean.length);
         System.arraycopy(variance, 0, result, mean.length, variance.length);
+
         this.parameter = result;
         return this;
     }
