@@ -6,19 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5678ec8c-4e6e-4509-a612-fbe78e1d6103" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClassificationModule/OfflinePredicting/OfflinePredicting.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassificationModule/OfflinePredicting/OfflinePredicting.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClassificationModule/OfflineTraining/OfflineTraining.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassificationModule/OfflineTraining/OfflineTraining.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClassificationModule/OnlinePredicting/KafkaConsumer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassificationModule/OnlinePredicting/KafkaConsumer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClassificationModule/Test2.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassificationModule/Test2.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Classifier/NN/Experiment/TestExampleByFile.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classifier/NN/Experiment/TestExampleByFile.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Classifier/NN/Model/NeuralNet.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classifier/NN/Model/NeuralNet.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Classifier/NN/Model/NeuralNetModel.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classifier/NN/Model/NeuralNetModel.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FeatureExtractor/MFCC/Experiment/MFCCTestDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FeatureExtractor/MFCC/Experiment/MFCCTestDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FeatureExtractor/MFCC/Model/MFCCProcecure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FeatureExtractor/MFCC/Model/MFCCProcecure.java" afterDir="false" />
-    </list>
+    <list default="true" id="5678ec8c-4e6e-4509-a612-fbe78e1d6103" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/../spark-study-java/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,7 +23,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Classifier/CNN/Experiment/TestExampleCNN.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1080">
+            <state relative-caret-position="818">
               <caret line="43" column="14" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="14" />
               <folding>
                 <element signature="e#35#66#0" expanded="true" />
@@ -44,53 +32,41 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Model/MFCCProcecure.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ClassificationModule/OfflineTraining/OfflineTraining.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3483">
-              <caret line="141" column="58" selection-start-line="141" selection-start-column="58" selection-end-line="141" selection-end-column="58" />
-              <folding>
-                <element signature="e#46#94#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Experiment/MFCCTestDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="23" column="65" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
+            <state relative-caret-position="459">
+              <caret line="25" column="42" lean-forward="true" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ClassificationModule/OfflinePredicting/OfflinePredicting.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1836">
+              <caret line="68" column="22" selection-start-line="68" selection-start-column="15" selection-end-line="68" selection-end-column="22" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#48#67#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Experiment/ReadWaveDemo.java">
+        <entry file="file://$PROJECT_DIR$/src/Classifier/NN/Model/NeuralNet.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+            <state relative-caret-position="-14200">
+              <caret line="352" column="15" selection-start-line="352" selection-start-column="15" selection-end-line="352" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Model/MFCC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="362" column="61" selection-start-line="362" selection-start-column="46" selection-end-line="362" selection-end-column="61" />
+            <state relative-caret-position="-611">
+              <caret line="361" column="49" selection-start-line="361" selection-start-column="49" selection-end-line="361" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -98,7 +74,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Util/WaveFileReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1620">
+            <state relative-caret-position="515">
               <caret line="76" column="17" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -347,7 +323,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.OfflinePredicting">
+  <component name="RunManager" selected="Application.MFCCTestDemo">
     <configuration name="MFCCTestDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="FeatureExtractor.MFCC.Experiment.MFCCTestDemo" />
       <module name="MusicStyleClassification" />
@@ -415,9 +391,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MFCCTestDemo" />
         <item itemvalue="Application.OfflinePredicting" />
         <item itemvalue="Application.OfflineTraining" />
-        <item itemvalue="Application.MFCCTestDemo" />
         <item itemvalue="Application.ReadWaveDemo" />
         <item itemvalue="Application.TestExampleByFile" />
       </list>
@@ -717,16 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Classifier/NN/Model/NeuralNet.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17118">
-          <caret line="640" column="21" selection-start-line="640" selection-start-column="14" selection-end-line="640" selection-end-column="21" />
-          <folding>
-            <element signature="e#29#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Classifier/CNN/Experiment/MnistRead.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
@@ -807,7 +773,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Classifier/CNN/Experiment/TestExampleCNN.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
+        <state relative-caret-position="818">
           <caret line="43" column="14" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="14" />
           <folding>
             <element signature="e#35#66#0" expanded="true" />
@@ -835,44 +801,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Experiment/ReadWaveDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Util/WaveFileReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="76" column="17" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1501#1502#0" expanded="true" />
-            <element signature="e#1542#1543#0" expanded="true" />
-            <element signature="e#1781#1782#0" expanded="true" />
-            <element signature="e#1819#1820#0" expanded="true" />
-            <element signature="e#1880#1881#0" expanded="true" />
-            <element signature="e#1919#1920#0" expanded="true" />
-            <element signature="e#2084#2085#0" expanded="true" />
-            <element signature="e#2116#2117#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ClassificationModule/OfflinePredicting/OfflinePredicting.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Experiment/MFCCTestDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="23" column="65" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
+        <state relative-caret-position="1836">
+          <caret line="68" column="22" selection-start-line="68" selection-start-column="15" selection-end-line="68" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#48#67#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -891,10 +825,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Util/WaveFileReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="76" column="17" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1501#1502#0" expanded="true" />
+            <element signature="e#1542#1543#0" expanded="true" />
+            <element signature="e#1781#1782#0" expanded="true" />
+            <element signature="e#1819#1820#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1919#1920#0" expanded="true" />
+            <element signature="e#2084#2085#0" expanded="true" />
+            <element signature="e#2116#2117#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Model/MFCC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="362" column="61" selection-start-line="362" selection-start-column="46" selection-end-line="362" selection-end-column="61" />
+        <state relative-caret-position="-611">
+          <caret line="361" column="49" selection-start-line="361" selection-start-column="49" selection-end-line="361" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Experiment/ReadWaveDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Classifier/NN/Model/NeuralNet.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14200">
+          <caret line="352" column="15" selection-start-line="352" selection-start-column="15" selection-end-line="352" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Experiment/MFCCTestDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="25" column="42" lean-forward="true" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
         </state>
       </provider>
     </entry>
