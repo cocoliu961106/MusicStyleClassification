@@ -50,7 +50,7 @@ object KafkaConsumer {
       val fileName = f._1
       val data = f._2
       val sampleRate = f._3
-      val result = new MFCCProcecure().processingData(data, sampleRate).getParameter
+      val result = new MFCCProcecure().processingData(data).getParameter
       (fileName, result)
     })
 

@@ -17,3 +17,7 @@ ClassificationModule: 整个音乐分类系统的流程
     OfflineTraining: 离线训练模块
     OfflinePredicting: 离线预测模块（仅用于测试）
     OnlinePredicting: 在线预测模块
+
+data: 数据集（没有进行版本管理请自行下载）
+    genres: GTZAN音乐10分类数据集
+    mnist: 手写数字数据集

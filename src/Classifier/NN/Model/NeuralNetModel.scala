@@ -18,7 +18,7 @@ case class PredictNNLabel(label: BDM[Double], features: BDM[Double], predict_lab
 class NeuralNetModel(
                       val config: NNConfig,
                       val weights: Array[BDM[Double]],
-                      val normalization: (Array[Double], Array[Double]) = (null, null)) extends Serializable {
+                      val normalization: Seq[Array[Double]]) extends Serializable {
 
   /**
     * 返回预测结果

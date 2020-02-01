@@ -13,7 +13,7 @@ import scala.collection.SortedMap
 
 object OfflinePredicting {
   def main(args: Array[String]): Unit = {
-    val musicPaths = Array("src/data/genres/metal/metal.00095.wav")
+    val musicPaths = Array("src/data/genres/pop/pop.00096.wav")
     val MFCCresultArr = featureExtract(musicPaths)
     predect(MFCCresultArr)
 
@@ -29,7 +29,7 @@ object OfflinePredicting {
       for (i <- 0 until wfr.getDataLen) {
         data(i) = wfr.getData()(0)(i)
       }
-      val result = new MFCCProcecure().processingData(data, wfr.getSampleRate).getParameter
+      val result = new MFCCProcecure().processingData(data).getParameter
       printf("第%d个文件特征提取完毕\n", num)
       num += 1
 
@@ -53,7 +53,7 @@ object OfflinePredicting {
       val fileName = mf._1
       val feature = mf._2
       for (i <- 0 until feature.length) {
-        feature(i) = (feature(i) - bc_normalization.value._1(i)) / bc_normalization.value._2(i)
+        feature(i) = (bc_normalization.value(0)(i) - feature(i)) / (bc_normalization.value(0)(i) - bc_normalization.value(1)(i)) * 2 - 1
       }
       val classificationIndex = labelMap(fileName.split('.')(0))
       val label = Array.fill(10)(0.0)   // 标签 1×10

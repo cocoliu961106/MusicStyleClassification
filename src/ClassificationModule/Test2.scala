@@ -6,19 +6,19 @@ import org.apache.spark.{SparkConf, SparkContext}
 import scala.collection.SortedMap
 import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
+import breeze.linalg.{DenseMatrix => BDM, sum => Bsum}
 
 object Test2 {
   def main(args: Array[String]): Unit = {
-    val a = ArrayBuffer(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-    val disorderMusicFileBuffer = new ArrayBuffer[Int]()
-    for (i <- a.length - 1 to 0 by -1) {
-      val index = (Math.random() * i).round.toInt
-      disorderMusicFileBuffer += a(index)
-      a.remove(index)
-    }
-    disorderMusicFileBuffer.toArray.foreach(println(_))
+    val a = 5.001
+    println(a * -1)
+  }
+
+  def sum(a: Int, nums: Int*) {
+    println(a)
   }
 }
+
 
 // spark读取hdfs音频文件
 /*val conf = new SparkConf()

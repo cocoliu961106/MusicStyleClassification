@@ -21,7 +21,7 @@ public class MFCCTestDemo {
         }
 
         // 2.进行特征提取
-        double[] result = new MFCCProcecure().processingData(data, wfr.getSampleRate()).getParameter();
+        double[] result = new MFCCProcecure().processingData(data).getParameter();
         for (int i = 0; i < result.length; i++) {
             System.out.println(result[i]);
         }

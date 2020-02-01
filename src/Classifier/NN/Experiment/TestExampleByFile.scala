@@ -25,7 +25,7 @@ object TestExampleByFile {
       (new BDM(1, y.length, y), new BDM(1, x.length, x))
     }
     val train_d = train_d1.map(f => (f._1, f._2))
-    val opts = Array(100.0, 20.0, 0.0)
+    val opts = Array(100.0, 50.0, 0.0)
     // 3.设置训练参数，建立模型
     val NNmodel = new NeuralNet().
       setSize(Array(5, 7, 1)).
