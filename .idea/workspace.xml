@@ -6,7 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5678ec8c-4e6e-4509-a612-fbe78e1d6103" name="Default Changelist" comment="" />
+    <list default="true" id="5678ec8c-4e6e-4509-a612-fbe78e1d6103" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/../spark-study-java/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,8 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Experiment/MFCCTestDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="25" column="42" lean-forward="true" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+            <state relative-caret-position="352">
+              <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -296,19 +298,19 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Project\MusicStyleClassification\src\data1\mnist" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="Classifier.NN.Util" />
-      <recent name="FeatureExtractor.MFCC.Util" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Project\MusicStyleClassification\src\data1\genres" />
       <recent name="E:\Project\MusicStyleClassification\src\data1\mnist" />
       <recent name="E:\Project\MusicStyleClassification\src\data\mnist" />
       <recent name="E:\Project\MusicStyleClassification\src" />
       <recent name="E:\Project\MusicStyleClassification\src\FeatureExtractor\MFCC\Experiment" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Classifier.NN.Util" />
+      <recent name="FeatureExtractor.MFCC.Util" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Project\MusicStyleClassification\src\data1\mnist" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -425,7 +427,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -866,8 +868,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FeatureExtractor/MFCC/Experiment/MFCCTestDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="25" column="42" lean-forward="true" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+        <state relative-caret-position="352">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
         </state>
       </provider>
     </entry>
