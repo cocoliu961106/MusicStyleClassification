@@ -6,12 +6,17 @@ import java.util.Properties;
 
 public class test1 {
     public static void main(String[] args) {
-        double[] data = {1, 2, 3, 4, 5, 6, 7, 8};
-        BeforeFFT preSteps = new BeforeFFT();
-        double[] psData = preSteps.preEnhance(data);
-        double[][] frameData = preSteps.framing(psData, 4);
-        preSteps.HammingWindow(frameData);
+        String[] aa = {"11","22","33"};
+        String[] bb = {"44","55","66"};
+        String[] cc = {"77","88","99"};
+        String[] ee = new String[aa.length + bb.length + cc.length];
+        System.arraycopy(aa, 0, ee, 0, aa.length);
+        System.arraycopy(bb, 0, ee, aa.length, bb.length);
+        System.arraycopy(cc, 0, ee, aa.length + bb.length, cc.length);
 
+        for (String s: ee) {
+            System.out.println(s);
+        }
     }
 
     /*public void kafka() {

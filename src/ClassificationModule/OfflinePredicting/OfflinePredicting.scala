@@ -13,7 +13,7 @@ import scala.collection.SortedMap
 
 object OfflinePredicting {
   def main(args: Array[String]): Unit = {
-    val musicPaths = Array("src/data/genres/pop/pop.00096.wav")
+    val musicPaths = Array("src/data/genres/hiphop/hiphop.00098.wav")
     val MFCCresultArr = featureExtract(musicPaths)
     predect(MFCCresultArr)
 
