@@ -15,7 +15,7 @@ import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
 
 /*// 离线训练，读取GTZAN数据集，特征提取，放入spark下的NN进行分类训练
-// 有时候训练时会出现所有节点的连接权重变为NaN，目前还不知道原因，多试两次之后就可以了
+// 有时候训练时会出现所有节点的连接权重变为NaN，目前还不知道原因，多试两次之后就可以了(调整学习率与momentum)
 class OfflineTraining(musicFile: Array[File]) {
 
 }*/
@@ -150,7 +150,7 @@ object OfflineTraining {
 
   // 分类
   private def classify(musicFeature: Array[(String, Array[Double])], max: Array[Double], min: Array[Double]): NeuralNetModel = {
-    val labelMap = SortedMap("blues" -> 1, "classical" -> 2, "country" -> 3, "disco" -> 4, "hiphop" -> 5, "jazz" -> 6, "metal" -> 7, "pop" -> 8, "reggae" -> 9, "rock" -> 10)
+    val labelMap = SortedMap( "classical" -> 1, "country" -> 2, "hiphop" -> 3, "jazz" -> 4, "metal" -> 5, "pop" -> 6)
     // 1.构造spark对象
     val conf = new SparkConf().setMaster("local[2]").setAppName("MusicClassify")
     val sc = new SparkContext(conf)
@@ -162,7 +162,7 @@ object OfflineTraining {
       val fileName = mf._1
       val feature = mf._2
       val classificationIndex = labelMap(fileName.split('.')(0))
-      val label = Array.fill(10)(0.0) // 标签 1×10
+      val label = Array.fill(6)(0.0) // 标签 1×10
       label(classificationIndex - 1) = 1.0
       val labelBDM = new BDM[Double](1, label.length, label)
       val featureBDM = new BDM[Double](1, feature.length, feature)
@@ -172,7 +172,7 @@ object OfflineTraining {
     // 设置训练参数，训练模型
     val opts = Array(10.0, 100.0, 0.0) // (batch大小， epoach循环训练次数，交叉验证比例)
     val NNmodel = new NeuralNet().
-      setSize(Array(72, 15, 10)).
+      setSize(Array(72, 15, 6)).
       setLayer(3).
       setActivation_function("lrelu").
       setLearningRate(0.02).
