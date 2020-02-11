@@ -9,5 +9,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jars" level="project" />
     <orderEntry type="library" name="scala-sdk-2.11.6" level="project" />
+    <orderEntry type="library" name="org.apache.kafka:kafka-clients:0.8.2.1" level="project" />
+    <orderEntry type="library" name="org.apache.kafka:kafka_2.11:0.8.2.1" level="project" />
+    <orderEntry type="library" name="org.apache.spark:spark-streaming-kafka_2.11:1.6.3" level="project" />
   </component>
 </module>

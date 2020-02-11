@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="KafkaTest:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/KafkaTest_jar</output-path>
+    <root id="archive" name="MusicStyleClassification.jar">
+      <element id="module-output" name="MusicStyleClassification" />
+    </root>
+  </artifact>
+</component>

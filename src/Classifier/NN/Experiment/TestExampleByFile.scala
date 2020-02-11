@@ -6,6 +6,7 @@ import breeze.linalg.{DenseMatrix => BDM}
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.{SparkConf, SparkContext}
 
+// 根据生成的随机数样本，进行训练，并对训练集进行预测，并将训练好的模型通过序列化的方式保存在文件中
 object TestExampleByFile {
   def main(args: Array[String]): Unit = {
     // 1.构造spark对象
@@ -24,7 +25,7 @@ object TestExampleByFile {
       (new BDM(1, y.length, y), new BDM(1, x.length, x))
     }
     val train_d = train_d1.map(f => (f._1, f._2))
-    val opts = Array(100.0, 20.0, 0.0)
+    val opts = Array(100.0, 50.0, 0.0)
     // 3.设置训练参数，建立模型
     val NNmodel = new NeuralNet().
       setSize(Array(5, 7, 1)).

@@ -7,7 +7,7 @@ import breeze.linalg.{DenseMatrix => BDM}
 import scala.io.Source
 import scala.util.Random
 
-// 模拟单标签分类的数据集，十个类别，1代表属于该分类，0代表不属于，特征为28×28，
+// 模拟单标签分类的数据集，十个类别，1代表属于该分类，0代表不属于，特征为28×28，通过随机数的方法生成标签和特征
 object generateInputData {
     def main (args: Array[String]): Unit = {
       val writer = new PrintWriter("C:\\Users\\1-49\\Desktop\\spark实验测试数据\\MlibTest\\train_d3.txt")

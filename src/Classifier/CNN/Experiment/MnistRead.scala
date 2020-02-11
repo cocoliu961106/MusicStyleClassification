@@ -5,6 +5,7 @@ import breeze.linalg.{CSCMatrix => BSM, DenseMatrix => BDM, DenseVector => BDV, 
 
 import scala.io.Source
 
+// 读取mnist手写数据集，文件存储格式和train_d3一样
 object MnistRead {
   val TRAIN_IMAGES_FILE = "src/data/mnist/train-images.idx3-ubyte";
   val TRAIN_LABELS_FILE = "src/data/mnist/train-labels.idx1-ubyte";

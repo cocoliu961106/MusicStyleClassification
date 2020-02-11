@@ -53,19 +53,7 @@ class NeuralNet(
                  private var testing: Double,
                  private var output_function: String,
                  private var initW: Array[BDM[Double]]) extends Serializable with Logging {
-  //          var size=Array(5, 7, 1)
-  //          var layer=3
-  //          var activation_function="tanh_opt"
-  //          var learningRate=2.0
-  //          var momentum=0.5
-  //          var scaling_learningRate=1.0
-  //          var weightPenaltyL2=0.0
-  //          var nonSparsityPenalty=0.0
-  //          var sparsityTarget=0.05
-  //          var inputZeroMaskedFraction=0.0
-  //          var dropoutFraction=0.0
-  //          var testing=0.0
-  //          var output_function="sigm"
+
   /**
     * size = architecture;
     * n = numel(nn.size);
@@ -170,7 +158,7 @@ class NeuralNet(
   /**
     * 运行神经网络算法.
     */
-  def NNtrain(train_d: RDD[(BDM[Double], BDM[Double])], opts: Array[Double]): NeuralNetModel = {
+  def NNtrain(train_d: RDD[(BDM[Double], BDM[Double])], opts: Array[Double], normalization: Array[Double]*): NeuralNetModel = {
     val sc = train_d.sparkContext
     var initStartTime = System.currentTimeMillis()
     var initEndTime = System.currentTimeMillis()
@@ -186,13 +174,6 @@ class NeuralNet(
       }
     }
     var nn_vW = NeuralNet.InitialWeightV(size)
-    //        val tmpw = nn_W(1)
-    //        for (i <- 0 to tmpw.rows -1) {
-    //          for (j <- 0 to tmpw.cols - 1) {
-    //            print(tmpw(i, j) + "\t")
-    //          }
-    //          println()
-    //        }
 
     // 初始化每层的平均激活度nn.p
     // average activations (for use with sparsity)
@@ -228,21 +209,6 @@ class NeuralNet(
         val bc_nn_W = sc.broadcast(nn_W)
         val bc_nn_vW = sc.broadcast(nn_vW)
 
-        //        println(i + "\t" + l)
-        //        val tmpw0 = bc_nn_W.value(0)
-        //        for (i <- 0 to tmpw0.rows - 1) {
-        //          for (j <- 0 to tmpw0.cols - 1) {
-        //            print(tmpw0(i, j) + "\t")
-        //          }
-        //          println()
-        //        }
-        //        val tmpw1 = bc_nn_W.value(1)
-        //        for (i <- 0 to tmpw1.rows - 1) {
-        //          for (j <- 0 to tmpw1.cols - 1) {
-        //            print(tmpw1(i, j) + "\t")
-        //          }
-        //          println()
-        //        }
 
         val batch_xy1 = train_split2(l - 1)
         //        val train_split3 = train_t.filter { f => (f._1 >= batchsize * (l - 1) + 1) && (f._1 <= batchsize * (l)) }
@@ -257,41 +223,11 @@ class NeuralNet(
         } else batch_xy1
 
         //        val tmpxy = batch_xy2.map(f => (f._1.toArray,f._2.toArray)).toArray.map {f => ((new ArrayBuffer() ++ f._1) ++ f._2).toArray}
-        //        for (i <- 0 to tmpxy.length - 1) {
-        //          for (j <- 0 to tmpxy(i).length - 1) {
-        //            print(tmpxy(i)(j) + "\t")
-        //          }
-        //          println()
-        //        }
 
         // NNff是进行前向传播
         // nn = nnff(nn, batch_x, batch_y);
         val train_nnff = NeuralNet.NNff(batch_xy2, bc_config, bc_nn_W)
 
-        //        val tmpa0 = train_nnff.map(f => f._1.nna(0)).take(20)
-        //        println("tmpa0")
-        //        for (i <- 0 to 10) {
-        //          for (j <- 0 to tmpa0(i).cols - 1) {
-        //            print(tmpa0(i)(0, j) + "\t")
-        //          }
-        //          println()
-        //        }
-        //        val tmpa1 = train_nnff.map(f => f._1.nna(1)).take(20)
-        //        println("tmpa1")
-        //        for (i <- 0 to 10) {
-        //          for (j <- 0 to tmpa1(i).cols - 1) {
-        //            print(tmpa1(i)(0, j) + "\t")
-        //          }
-        //          println()
-        //        }
-        //        val tmpa2 = train_nnff.map(f => f._1.nna(2)).take(20)
-        //        println("tmpa2")
-        //        for (i <- 0 to 10) {
-        //          for (j <- 0 to tmpa2(i).cols - 1) {
-        //            print(tmpa2(i)(0, j) + "\t")
-        //          }
-        //          println()
-        //        }
 
         // sparsity计算，计算每层节点的平均稀疏度
         nn_p = NeuralNet.ActiveP(train_nnff, bc_config, nn_p)
@@ -301,60 +237,12 @@ class NeuralNet(
         // nn = nnbp(nn);
         val train_nnbp = NeuralNet.NNbp(train_nnff, bc_config, bc_nn_W, bc_nn_p)
 
-        //        val tmpd0 = rdd5.map(f => f._2(2)).take(20)
-        //        println("tmpd0")
-        //        for (i <- 0 to 10) {
-        //          for (j <- 0 to tmpd0(i).cols - 1) {
-        //            print(tmpd0(i)(0, j) + "\t")
-        //          }
-        //          println()
-        //        }
-        //        val tmpd1 = rdd5.map(f => f._2(1)).take(20)
-        //        println("tmpd1")
-        //        for (i <- 0 to 10) {
-        //          for (j <- 0 to tmpd1(i).cols - 1) {
-        //            print(tmpd1(i)(0, j) + "\t")
-        //          }
-        //          println()
-        //        }
-        //        val tmpdw0 = rdd5.map(f => f._3(0)).take(20)
-        //        println("tmpdw0")
-        //        for (i <- 0 to 10) {
-        //          for (j <- 0 to tmpdw0(i).cols - 1) {
-        //            print(tmpdw0(i)(0, j) + "\t")
-        //          }
-        //          println()
-        //        }
-        //        val tmpdw1 = rdd5.map(f => f._3(1)).take(20)
-        //        println("tmpdw1")
-        //        for (i <- 0 to 10) {
-        //          for (j <- 0 to tmpdw1(i).cols - 1) {
-        //            print(tmpdw1(i)(0, j) + "\t")
-        //          }
-        //          println()
-        //        }
-
         // nn = NNapplygrads(nn) returns an neural network structure with updated
         // weights and biases
         // 更新权重参数：w=w-α*[dw + λw]
-        val train_nnapplygrads = NeuralNet.NNapplygrads(train_nnbp, bc_config, bc_nn_W, bc_nn_vW)
+        val train_nnapplygrads = NeuralNet.NNapplygrads(train_nnbp, bc_config, bc_nn_W, bc_nn_vW, batchsize)
         nn_W = train_nnapplygrads(0)
         nn_vW = train_nnapplygrads(1)
-
-        //        val tmpw2 = train_nnapplygrads(0)(0)
-        //        for (i <- 0 to tmpw2.rows - 1) {
-        //          for (j <- 0 to tmpw2.cols - 1) {
-        //            print(tmpw2(i, j) + "\t")
-        //          }
-        //          println()
-        //        }
-        //        val tmpw3 = train_nnapplygrads(0)(1)
-        //        for (i <- 0 to tmpw3.rows - 1) {
-        //          for (j <- 0 to tmpw3.cols - 1) {
-        //            print(tmpw3(i, j) + "\t")
-        //          }
-        //          println()
-        //        }
 
         // error and loss
         // 输出误差计算
@@ -393,13 +281,15 @@ class NeuralNet(
         output_function)
       initEndTime = System.currentTimeMillis()
 
-      // 打印输出结果
-      printf("epoch: numepochs = %d , Took = %d seconds; Full-batch train mse = %f, val mse = %f.\n", i, scala.math.ceil((initEndTime - initStartTime).toDouble / 1000).toLong, loss_train_e(i - 1), loss_val_e(i - 1))
+    }
+    for (i <- 1 to loss_train_e.length) {
+      printf("epoch: numepochs = %d , Full-batch train mse = %f, val mse = %f.\n", i, loss_train_e(i - 1), loss_val_e(i - 1))
+
     }
     val configok = NNConfig(size, layer, activation_function, learningRate, momentum, scaling_learningRate,
       weightPenaltyL2, nonSparsityPenalty, sparsityTarget, inputZeroMaskedFraction, dropoutFraction, 1.0,
       output_function)
-    new NeuralNetModel(configok, nn_W)
+    new NeuralNetModel(configok, nn_W, normalization)
   }
 
 }
@@ -587,19 +477,6 @@ object NeuralNet extends Serializable {
       NNLabel(lable, nna, error)
     }
 
-    //    println("bc_size " + bc_config.value.size(0) + bc_config.value.size(1) + bc_config.value.size(2))
-    //    println("bc_layer " + bc_config.value.layer)
-    //    println("bc_activation_function " + bc_config.value.activation_function)
-    //    println("bc_output_function " + bc_config.value.output_function)
-    //
-    //    println("tmpw0 ")
-    //    val tmpw0 = bc_nn_W.value(0)
-    //    for (i <- 0 to tmpw0.rows - 1) {
-    //      for (j <- 0 to tmpw0.cols - 1) {
-    //        print(tmpw0(i, j) + "\t")
-    //      }
-    //      println()
-    //    }
 
     // feedforward pass
     // 第2至n-1层计算，a(i)=f(a(i-1)*w(i-1)')
@@ -782,6 +659,7 @@ object NeuralNet extends Serializable {
       val nn_a = f._1.nna
       val di = f._3
       val dropout = f._2
+      var j = 0
       for (i <- bc_config.value.layer - 2 to 1 by -1) {
         // f'(z)表达式
         val nnd_act = bc_config.value.activation_function match {
@@ -823,12 +701,12 @@ object NeuralNet extends Serializable {
         val W1 = bc_nn_W.value(i)
         val nndi1 = if (i + 1 == bc_config.value.layer - 1) {
           //in this case in d{n} there is not the bias term to be removed
-          val di1 = di(i - 1)
+          val di1 = di(j)
           val di2 = (di1 * W1 + sparsityError) :* nnd_act
           di2
         } else {
           // in this case in d{i} the bias term has to be removed
-          val di1 = di(i - 1)(::, 1 to -1)
+          val di1 = di(j)(::, 1 to -1)
           val di2 = (di1 * W1 + sparsityError) :* nnd_act
           di2
         }
@@ -840,6 +718,7 @@ object NeuralNet extends Serializable {
           nndi1 :* dropouti2
         } else nndi1
         di += nndi2
+        j += 1
       }
       di += BDM.zeros(1, 1)
       // 计算最终需要的偏导数值：dw(n)=(1/m)∑d(n+1)*a(n)
@@ -853,7 +732,7 @@ object NeuralNet extends Serializable {
         }
         dw += nndW
       }
-      (f._1, di, dw) // ((样本标签，每一层输出，输出误差)， dropout， 输出层反向传播的偏导)
+      (f._1, di, dw) // ((样本标签，每一层输出，输出误差)， dropout， 反向传播的偏导)
     }
     val train_data7 = train_data6.map(f => f._3)
 
@@ -913,7 +792,8 @@ object NeuralNet extends Serializable {
                     train_nnbp: Array[BDM[Double]],
                     bc_config: org.apache.spark.broadcast.Broadcast[NNConfig],
                     bc_nn_W: org.apache.spark.broadcast.Broadcast[Array[BDM[Double]]],
-                    bc_nn_vW: org.apache.spark.broadcast.Broadcast[Array[BDM[Double]]]): Array[Array[BDM[Double]]] = {
+                    bc_nn_vW: org.apache.spark.broadcast.Broadcast[Array[BDM[Double]]],
+                    batchsize: Double): Array[Array[BDM[Double]]] = {
     // nn = nnapplygrads(nn) returns an neural network structure with updated
     // weights and biases
     // 更新权重参数：w=w-α*[dw + λw]
@@ -924,7 +804,7 @@ object NeuralNet extends Serializable {
         val dwi = train_nnbp(i)
         val zeros = BDM.zeros[Double](dwi.rows, 1)
         val l2 = BDM.horzcat(zeros, dwi(::, 1 to -1))
-        val dwi2 = dwi + (l2 * bc_config.value.weightPenaltyL2)
+        val dwi2 = dwi + (l2 * bc_config.value.weightPenaltyL2 / batchsize)
         dwi2 // dw + λw
       } else {
         val dwi = train_nnbp(i) // dw
@@ -966,23 +846,48 @@ object NeuralNet extends Serializable {
     val train_nnff = NeuralNet.NNff(batch_xy, bc_config, bc_nn_W)
     // error and loss
     // 输出误差计算
-    val loss1 = train_nnff.map(f => f._1.error)
-    val (loss2, counte) = loss1.treeAggregate((0.0, 0L))(
-      seqOp = (c, v) => {
-        // c: (e, count), v: (m)
-        val e1 = c._1
-        val e2 = (v :* v).sum
-        val esum = e1 + e2
-        (esum, c._2 + 1)
-      },
-      combOp = (c1, c2) => {
-        // c: (e, count)
-        val e1 = c1._1
-        val e2 = c2._1
-        val esum = e1 + e2
-        (esum, c1._2 + c2._2)
+    val Loss = if (bc_config.value.output_function == "softmax") {
+      val loss1 = train_nnff.map(f => {
+        val nna = f._1.nna.toArray
+        (f._1.label, nna(nna.length - 1))
       })
-    val Loss = loss2 / counte.toDouble
-    Loss * 0.5
+      val (loss2, counte) = loss1.treeAggregate((0.0, 0L))(
+        seqOp = (c, v) => {
+          // c: (e, count), v: (m)
+          val e1 = c._1
+          val e3 = (v._1 :* BDM(v._2.toArray.map(f => { Math.log(f)}))).sum
+          val esum = e1 + e3
+          (esum, c._2 + 1)
+        },
+        combOp = (c1, c2) => {
+          // c: (e, count)
+          val e1 = c1._1
+          val e2 = c2._1
+          val esum = e1 + e2
+          (esum, c1._2 + c2._2)
+        })
+      val Loss = loss2 / counte.toDouble
+      Loss * -1
+    } else {
+      val loss1 = train_nnff.map(f => f._1.error)
+      val (loss2, counte) = loss1.treeAggregate((0.0, 0L))(
+        seqOp = (c, v) => {
+          // c: (e, count), v: (m)
+          val e1 = c._1
+          val e2 = (v :* v).sum
+          val esum = e1 + e2
+          (esum, c._2 + 1)
+        },
+        combOp = (c1, c2) => {
+          // c: (e, count)
+          val e1 = c1._1
+          val e2 = c2._1
+          val esum = e1 + e2
+          (esum, c1._2 + c2._2)
+        })
+      val Loss = loss2 / counte.toDouble
+      Loss * 0.5
+    }
+    Loss
   }
 }

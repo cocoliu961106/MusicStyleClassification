@@ -2,9 +2,10 @@ package FeatureExtractor.MFCC.Experiment;
 
 import FeatureExtractor.MFCC.Util.WaveFileReader;
 
+//测试读取wav文件的类
 public class ReadWaveDemo {
     public static void main(String[] args) {
-        String fileName = "F:\\BaiduNetdiskDownload\\林俊杰 - 可惜没如果.wav";
+        String fileName = "src/data/genres/hiphop/hiphop.00098.wav";
         WaveFileReader wfr = new WaveFileReader(fileName);
         System.out.println(wfr.isSuccess());
         System.out.println(wfr.getBitPerSample());

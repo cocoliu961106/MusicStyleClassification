@@ -6,6 +6,7 @@ import breeze.linalg.{DenseMatrix => BDM}
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.{SparkConf, SparkContext}
 
+// 通过反序列化将保存的模型读取，并用train_d2样本进行预测，看看序列化之前和之后的模型预测结果是否一致
 object TestExampleByNNModel {
   def main(args: Array[String]): Unit = {
     val data_path = "C:\\Users\\1-49\\Desktop\\spark实验测试数据\\MlibTest\\train_d2.txt"

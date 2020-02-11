@@ -9,6 +9,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 import scala.collection.mutable.ArrayBuffer
 
 
+// 直接通过生成随机数的方式训练模型，预测训练集，获得误差
 object TestExampleNNByRandom {
   def main (args: Array[String]): Unit = {
     // 1.构造spark对象
