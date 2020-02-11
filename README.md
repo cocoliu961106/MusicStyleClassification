@@ -19,5 +19,5 @@ ClassificationModule: 整个音乐分类系统的流程
     OnlinePredicting: 在线预测模块
 
 data: 数据集（没有进行版本管理请自行下载）
-    genres: GTZAN音乐10分类数据集
+    genres: GTZAN音乐10分类数据集（实验中选的是classical、country、jazz、mental、hiphop、pop六种类别，把其余类别的文件夹删掉即可）
     mnist: 手写数字数据集
