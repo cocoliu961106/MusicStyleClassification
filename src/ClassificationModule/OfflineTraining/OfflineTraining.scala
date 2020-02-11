@@ -170,12 +170,12 @@ object OfflineTraining {
     })
 
     // 设置训练参数，训练模型
-    val opts = Array(10.0, 100.0, 0.0) // (batch大小， epoach循环训练次数，交叉验证比例)
+    val opts = Array(10.0, 200.0, 0.0) // (batch大小， epoach循环训练次数，交叉验证比例)
     val NNmodel = new NeuralNet().
-      setSize(Array(72, 15, 6)).
+      setSize(Array(78, 15, 6)).
       setLayer(3).
       setActivation_function("lrelu").
-      setLearningRate(0.02).
+      setLearningRate(0.05).
       setScaling_learningRate(1.0).
       setWeightPenaltyL2(0.5).
       setNonSparsityPenalty(0.0).

@@ -5,7 +5,7 @@ import Classifier.NN.Util.Serialization
 import FeatureExtractor.MFCC.Model.MFCCProcecure
 import FeatureExtractor.MFCC.Util.OnlineWaveFileReader
 import kafka.serializer.StringDecoder
-import org.apache.spark.SparkConf
+import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.streaming.dstream.DStream
 import org.apache.spark.streaming.kafka.KafkaUtils
 import org.apache.spark.streaming.{Seconds, StreamingContext}
@@ -25,6 +25,7 @@ object KafkaConsumer {
     //    创建sparksession
     val conf = new SparkConf().setMaster("local[2]").setAppName("MusicClassification")
     val ssc = new StreamingContext(conf, Seconds(15))
+    val sc = ssc.sparkContext
     //    设置中间存储的检查点，可以进行累计计算
     //    ssc.checkpoint("hdfs://master:9000/xxx")
     //    读取kafka数据
@@ -42,14 +43,13 @@ object KafkaConsumer {
       for (i <- 0 until owfr.getDataLen) {
         data(i) = owfr.getData(0)(i)
       }
-      (fileName, data, sampleRate)
+      (fileName, data)
     })
 
     // 获取特征
     val MFCCParameterStream = fileDataStream.map(f => {
       val fileName = f._1
       val data = f._2
-      val sampleRate = f._3
       val result = new MFCCProcecure().processingData(data).getParameter
       (fileName, result)
     })
@@ -61,13 +61,16 @@ object KafkaConsumer {
       else {
         val modelPath = "src/ClassificationModule/MusicClassificationNNModel.obj"
         val NNmodel = Serialization.deserialize_file[NeuralNetModel](modelPath)
-        val labelMap = SortedMap("blues" -> 1, "classical" -> 2, "country" -> 3, "disco" -> 4, "hiphop" -> 5, "jazz" -> 6, "metal" -> 7, "pop" -> 8, "reggae" -> 9, "rock" -> 10)
-
+        val labelMap = SortedMap("classical" -> 1, "country" -> 2, "hiphop" -> 3, "jazz" -> 4, "metal" -> 5, "pop" -> 6)
+        val bc_normalization = sc.broadcast(NNmodel.normalization)
         val predictMusicRDD = rdd.map(mf => {
           val fileName = mf._1
           val feature = mf._2
+          for (i <- 0 until feature.length) {
+            feature(i) = (bc_normalization.value(0)(i) - feature(i)) / (bc_normalization.value(0)(i) - bc_normalization.value(1)(i)) * 2 - 1
+          }
           val classificationIndex = labelMap(fileName.split('.')(0))
-          val label = Array.fill(10)(0.0)   // 标签 1×10
+          val label = Array.fill(6)(0.0)   // 标签 1×10
           label(classificationIndex - 1) = 1.0
           val labelBDM = new BDM[Double](1, label.length, label)
           val featureBDM = new BDM[Double](1, feature.length, feature)
@@ -76,12 +79,10 @@ object KafkaConsumer {
         val musicNameRDD = predictMusicRDD.map(f => f._1)
         val musicFeatureRDD = predictMusicRDD.map(f => (f._2, f._3))
         val NNforecast = NNmodel.predict(musicFeatureRDD)
-        val NNerror = NNmodel.Loss(NNforecast)
-        println(s"NNerror = $NNerror.")
 
         println("————预测的分类结果————")
         val classificationResultRDD = musicNameRDD.zip(NNforecast)
-        classificationResultRDD.foreach(result => {
+        classificationResultRDD.collect().foreach(result => {
           val fileName = result._1
           println(fileName + " 的风格分类结果：")
           val forecastResult = result._2

@@ -12,7 +12,7 @@ public class MFCCProcecure {
         preSteps.HammingWindow(frameData);
 
         // 2.进行FFT、通过三角滤波器并进行DCT得到MFCC系数
-        MFCC MFCC = new MFCC(12, 16000, 22, 512, false, 0, false);
+        MFCC MFCC = new MFCC(13, 16000, 22, 512, false, 0, false);
         double[][] MFCCParameters = new double[frameData.length][];
         for (int i = 0; i < frameData.length; i++) {
             MFCCParameters[i] = MFCC.getParameters(frameData[i]);
@@ -20,11 +20,18 @@ public class MFCCProcecure {
 
         int numberOfParameters = MFCC.getNumberOfCoefficients();
 
-        // 求一阶差分与二阶差分\
+        // 求一阶差分与二阶差分
+        // int numberOfAllParameters = numberOfParameters * 1;
+        // int numberOfAllParameters = numberOfParameters * 2;
         int numberOfAllParameters = numberOfParameters * 3;
         double[][] oneOrderDifference = differenceTransform(MFCCParameters, 2, numberOfParameters);
         double[][] twoOrderDifference = differenceTransform(oneOrderDifference, 2, numberOfParameters);
+        // double[][] allParameters = MFCCParameters;
         double[][] allParameters = new double[MFCCParameters.length][numberOfAllParameters];
+//        for (int i = 0; i< MFCCParameters.length; i++) {
+//            System.arraycopy(MFCCParameters[i], 0, allParameters[i], 0, numberOfParameters);
+//            System.arraycopy(oneOrderDifference[i], 0, allParameters[i], numberOfParameters, numberOfParameters);
+//        }
         for (int i = 0; i< MFCCParameters.length; i++) {
             System.arraycopy(MFCCParameters[i], 0, allParameters[i], 0, numberOfParameters);
             System.arraycopy(oneOrderDifference[i], 0, allParameters[i], numberOfParameters, numberOfParameters);
