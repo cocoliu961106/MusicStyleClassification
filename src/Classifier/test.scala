@@ -5,10 +5,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 
 object Test {
   def main(args: Array[String]): Unit = {
-    val matrix1 = BDM((1.0, 2.0, 6.0), (3.0, 4.0, 5.0))
-    val matrix2 = BDM((5.0, -6.0), (-7.0, 8.0), (9.0, -10.0))
-    val matrix3 = BDM((1, 2, 3, 4, 5))
-    println(d_lRelu(matrix2))
+    val a = (0,0,0)
   }
 
   def softmax(matrix: BDM[Double]): BDM[Double] = {
