@@ -23,7 +23,7 @@ import scala.collection.SortedMap
 object KafkaConsumer {
   def main(args: Array[String]): Unit = {
     //    创建sparksession
-    val conf = new SparkConf().setMaster("local[2]").setAppName("MusicClassification")
+    val conf = new SparkConf().setAppName("MusicClassification").setMaster("local[4]")
     val ssc = new StreamingContext(conf, Seconds(15))
     val sc = ssc.sparkContext
     //    设置中间存储的检查点，可以进行累计计算
@@ -33,9 +33,9 @@ object KafkaConsumer {
     val topic = "kafka".split(",").toSet
     //    获取新上传的文件的文件名
     val fileNameStream: DStream[String] = KafkaUtils.createDirectStream[String, String, StringDecoder, StringDecoder](ssc, kafkaParam, topic).map(_._2)
-
+    val fileNameStream1 = fileNameStream.filter(fileName => fileName.endsWith(".wav"))
     // 获取音乐文件的数据部分
-    val fileDataStream = fileNameStream.map(f => {
+    val fileDataStream = fileNameStream1.map(f => {
       val fileName = f
       val owfr = new OnlineWaveFileReader(f)
       val sampleRate = owfr.getSampleRate
@@ -69,9 +69,11 @@ object KafkaConsumer {
           for (i <- 0 until feature.length) {
             feature(i) = (bc_normalization.value(0)(i) - feature(i)) / (bc_normalization.value(0)(i) - bc_normalization.value(1)(i)) * 2 - 1
           }
-          val classificationIndex = labelMap(fileName.split('.')(0))
           val label = Array.fill(6)(0.0)   // 标签 1×10
-          label(classificationIndex - 1) = 1.0
+          if (labelMap.contains("country1.00011.wav".split('.')(0))) {
+            val classificationIndex = labelMap(fileName.split('.')(0))
+            label(classificationIndex - 1) = 1.0
+          }
           val labelBDM = new BDM[Double](1, label.length, label)
           val featureBDM = new BDM[Double](1, feature.length, feature)
           (fileName, labelBDM, featureBDM)
