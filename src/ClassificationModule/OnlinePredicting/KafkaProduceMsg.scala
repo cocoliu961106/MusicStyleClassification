@@ -77,10 +77,12 @@ class KafkaProduceMsg extends Runnable {
         //        println()
         lt = nextlt
         fileNameList = tempFileNameList
+        var num = 0
         newFileNameList.foreach(f => {
-          val record = new ProducerRecord[String, String](this.TOPIC, "key", f)
+          val record = new ProducerRecord[String, String](this.TOPIC, /*num % 3,*/ "key", f)
           println(record)
           producer.send(record)
+          num += 1
         })
         println("完成一次消息生产")
       }

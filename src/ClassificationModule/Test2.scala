@@ -12,14 +12,8 @@ import breeze.linalg.{DenseMatrix => BDM, sum => Bsum}
 
 object Test2 {
   def main(args: Array[String]): Unit = {
-    val musicPath = "src/data/genres/classical"
-    val musicList = new File(musicPath)
-    val music = musicList.listFiles().slice(90, 100).map(f => {
-      f.getName
-    })
-    music.foreach(f => {
-      println(f)
-    })
+    val labelMap = SortedMap("classical" -> 1, "country" -> 2, "hiphop" -> 3, "jazz" -> 4, "metal" -> 5, "pop" -> 6)
+    println(labelMap.contains("country1.00011.wav".split('.')(0)))
   }
 
   def sum(a: Int, nums: Int*) {

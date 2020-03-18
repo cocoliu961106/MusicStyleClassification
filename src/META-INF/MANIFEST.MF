@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: spark-streaming-kafka_2.11-1.6.3.jar kafka_2.11-0.8.2.1.ja
+ r kafka-clients-0.8.2.1.jar
+Main-Class: ClassificationModule.OnlinePredicting.KafkaConsumer
+
